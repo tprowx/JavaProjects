@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch05.pp5_1;
+package ch05.pp5_2;
 
 import java.util.Scanner;
 /**
@@ -20,20 +20,25 @@ public class LeapYearTester {
 		int year;
 		
 		System.out.print(prompt);
-		if(scan.hasNextInt()) {
+
+		while(scan.hasNextInt()) {
 			year = scan.nextInt();
 			
                         if(year < 1582) {
-                          System.out.println("ERROR: Year " + year +
-                                             " is less than 1582.\nExiting");
-                          System.exit(1);
+                          System.out.println("Year " + year + " is less than 1582.\nPlease enter " +
+                                             "another year");
+                          System.out.print(prompt);
+                          continue;
                         }
+
 			if(isLeapYear(year)) {
 				System.out.println("Year " + year + " is a leap year");
 			}
 			else {
 				System.out.println("Not a leap year " + year);
 			}
+
+                        System.out.print(prompt);
 		}
 	}
 }
