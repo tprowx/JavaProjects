@@ -8,14 +8,14 @@ public class IntegerInfo
   {
     Scanner scan = new Scanner(System.in);
     
-    int x, remainder, numZero, numOdd, numEven;
+    int input, x, remainder, numZero, numOdd, numEven;
     numZero = numOdd = numEven = 0;
 
     String prompt = "Enter an integer: ";
 
     System.out.print(prompt);
     while(scan.hasNextInt()) {
-      x = scan.nextInt();
+      input = x = scan.nextInt();
       while(x > 0) {
         remainder = x % 10;
         if(remainder == 0) {
@@ -29,7 +29,7 @@ public class IntegerInfo
         }
         x /= 10;
       }
-      System.out.println("== INFO FOR NUMBER " + x + " ==");
+      System.out.println("== INFO FOR NUMBER " + input + " ==");
       System.out.println("Zero digits: " + numZero);
       System.out.println("Even digits: " + numEven);
       System.out.println(" Odd digits: " + numOdd );
