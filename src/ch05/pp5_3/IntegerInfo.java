@@ -16,6 +16,10 @@ public class IntegerInfo
     System.out.print(prompt);
     while(scan.hasNextInt()) {
       input = x = scan.nextInt();
+      if(input == 0) {
+        System.out.println("Caught sentinel value; exiting");
+        break;
+      }
       while(x > 0) {
         remainder = x % 10;
         if(remainder == 0) {
