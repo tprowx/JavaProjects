@@ -6,6 +6,7 @@
 //********************************************************************
 package ch05.pp5_4;
 
+import static java.lang.System.out;
 import java.util.Scanner;
 
 public class PalindromeTester
@@ -23,7 +24,7 @@ public class PalindromeTester
     boolean toBreak = false;
     while (another.equalsIgnoreCase("y")) // allows y or Y
     {
-      System.out.println ("Enter a potential palindrome:");
+      out.println ("Enter a potential palindrome:");
       str = scan.nextLine();
   
       left = 0;
@@ -49,16 +50,20 @@ public class PalindromeTester
           left++;
           right--;
         }
-        else
+        else {
           break;
+        } // Always use braces or Richard Stallman will kick your ass
       }
       //while (str.charAt(left) == str.charAt(right) && left < right)
-      System.out.println();
+      out.println();
   
-      if (left < right)
+      
+      if (left < right) {
         System.out.println ("That string is NOT a palindrome.");
-      else
+      }
+      else {
         System.out.println ("That string IS a palindrome.");
+      }
   
       System.out.println();
       System.out.print ("Test another palindrome (y/n)? ");
