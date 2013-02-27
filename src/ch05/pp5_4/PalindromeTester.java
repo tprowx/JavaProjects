@@ -3,6 +3,13 @@
 // Author: Lewis/Loftus
 //
 // Demonstrates the use of nested while loops.
+//
+// Create a modified version of the PalindromeTester program so
+// that the spaces, punctuation, and changes in uppercase and low-
+// ercase are not considered when determining whether a string is a
+// palindrome. Hint: These issues can be handled in several ways.
+// Think carefully about your design.
+// 
 //********************************************************************
 package ch05.pp5_4;
 
