@@ -8,7 +8,7 @@ public class BullSharkPalindrome {
   /**
    * This recursive method takes a word(s) and tests for palindrome.
    * @param words
-   * The words to test for palindrome
+   * The word or phrase to test for palindrome
    * @return
    * True if palindrome, false otherwise
    */
@@ -18,7 +18,7 @@ public class BullSharkPalindrome {
     }
 
     if(words.charAt(0) == words.charAt(words.length()-1)) {
-      return palidrome(words.substring(1, words.length()-1));
+      return palindrome(words.substring(1, words.length()-1));
     } else {
       return false;
     }
