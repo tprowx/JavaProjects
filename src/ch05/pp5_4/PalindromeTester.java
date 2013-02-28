@@ -24,7 +24,7 @@ public class PalindromeTester
   public static void main (String[] args)
   {
     String str, another = "y";
-    int left, right;
+    int left, right, oldLeft, oldRight;
     Scanner scan = new Scanner (System.in);
     Character x, y;
 
@@ -32,32 +32,37 @@ public class PalindromeTester
     {
       out.println ("Enter a potential palindrome:");
       str = scan.nextLine();
-  
-      left = 0;
-      right = str.length() - 1;
+      
+      oldLeft = left = 0;
+      oldRight = right = str.length() - 1;
       
       // Always use braces or Richard Stallman will kick your ass
       while(left < right) {
         x = str.charAt(left);
         y = str.charAt(right);
-
+        
         if(Character.toLowerCase(x) ==
            Character.toLowerCase(y)) {
           left++;
           right--;
-        }
-        else {
-          while(!Character.isLetterOrDigit(x) && left <= str.length() - 1 &&
-                left < right) { 
-            System.err.println("X: at " + left);
+          System.err.println("[M] X: at " + left);
+          System.err.println("[M] Right: " + right);
+          System.err.println("[M] X = `" + str.charAt(left) + "', Y = `" +
+                                       str.charAt(right) + "'");
+        } else {
+          if(!Character.isLetterOrDigit(x)) {
             left++;
-            x = str.charAt(left);
+            System.err.println("X: at " + left);
+            System.err.println("Right: " + right);
+            System.err.println("X = `" + str.charAt(left) + "', Y = `" +
+                                         str.charAt(right) + "'");
           }
-          while(!Character.isLetterOrDigit(y) && right >= 0 &&
-                left < right) {
-            System.err.println("Y: at " + right );
+          if(!Character.isLetterOrDigit(y)) {
             right--;
-            y = str.charAt(right);
+            System.err.println("Y: at " + right);
+            System.err.println("Left: " + left);
+            System.err.println("X = `" + str.charAt(left) + "', Y = `" +
+                                         str.charAt(right) + "'");
           }
         }
       }
