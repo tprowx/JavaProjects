@@ -23,7 +23,7 @@ public class BullSharksPalindromeTester {
 
     // Initiate recursion
     BullSharkPalindrome bsp = new BullSharkPalindrome();
-    boolean isPalidrome = bsp.palidrome(words.toLowerCase().replaceAll("[^A-Za-z0-9]", ""));
+    boolean isPalidrome = bsp.palindrome(words.toLowerCase().replaceAll("[^A-Za-z0-9]", ""));
     if(isPalidrome) {
       System.out.println("\"" + words + "\"" + " IS a palindrome!");
     } else {

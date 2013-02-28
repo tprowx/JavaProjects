@@ -12,7 +12,7 @@ public class BullSharkPalindrome {
    * @return
    * True if palindrome, false otherwise
    */
-  public boolean palidrome(String words) {
+  public boolean palindrome(String words) {
     if(words.length() <= 1) {
       return true;
     }
