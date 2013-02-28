@@ -28,7 +28,6 @@ public class PalindromeTester
     Scanner scan = new Scanner (System.in);
     Character x, y;
 
-    boolean toBreak = false;
     while (another.equalsIgnoreCase("y")) // allows y or Y
     {
       out.println ("Enter a potential palindrome:");
@@ -37,29 +36,30 @@ public class PalindromeTester
       left = 0;
       right = str.length() - 1;
       
-      for(;;) {
+      // Always use braces or Richard Stallman will kick your ass
+      while(left < right) {
         x = str.charAt(left);
         y = str.charAt(right);
 
-/*        if(!(x >= 'A' && x <= 'Z'  ||
-           x >= 'a' && x <= 'z')   ||
-           !(y >= 'A' && y <= 'Z'  ||
-           y >= 'a' && y <= 'z')   ||
-           !(x >= '0' && x <= '9') || 
-           !(y >= '0' && y <= '9') && left < right)
-*/
-        if(!x.isLetterOrDigit(x) && !y.isLetterOrDigit(y) &&
-           left < right) {
-           left++;
-           right--;
-        }
-        else if(x.toLowerCase(x) == y.toLowerCase(y) && left < right) {
+        if(Character.toLowerCase(x) ==
+           Character.toLowerCase(y)) {
           left++;
           right--;
         }
         else {
-          break;
-        } // Always use braces or Richard Stallman will kick your ass
+          while(!Character.isLetterOrDigit(x) && left <= str.length() - 1 &&
+                left < right) { 
+            System.err.println("X: at " + left);
+            left++;
+            x = str.charAt(left);
+          }
+          while(!Character.isLetterOrDigit(y) && right >= 0 &&
+                left < right) {
+            System.err.println("Y: at " + right );
+            right--;
+            y = str.charAt(right);
+          }
+        }
       }
       //while (str.charAt(left) == str.charAt(right) && left < right)
       out.println();
