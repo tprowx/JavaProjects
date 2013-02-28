@@ -14,6 +14,7 @@
 package ch05.pp5_4;
 
 import static java.lang.System.out;
+import static java.lang.System.err;
 import java.util.Scanner;
 
 public class PalindromeTester
@@ -24,7 +25,7 @@ public class PalindromeTester
   public static void main (String[] args)
   {
     String str, another = "y";
-    int left, right, oldLeft, oldRight;
+    int left, right;
     Scanner scan = new Scanner (System.in);
     Character x, y;
 
@@ -33,8 +34,8 @@ public class PalindromeTester
       out.println ("Enter a potential palindrome:");
       str = scan.nextLine();
       
-      oldLeft = left = 0;
-      oldRight = right = str.length() - 1;
+      left = 0;
+      right = str.length() - 1;
       
       // Always use braces or Richard Stallman will kick your ass
       while(left < right) {
@@ -45,40 +46,54 @@ public class PalindromeTester
            Character.toLowerCase(y)) {
           left++;
           right--;
-          System.err.println("[M] X: at " + left);
-          System.err.println("[M] Right: " + right);
-          System.err.println("[M] X = `" + str.charAt(left) + "', Y = `" +
-                                       str.charAt(right) + "'");
-        } else {
-          if(!Character.isLetterOrDigit(x)) {
-            left++;
-            System.err.println("X: at " + left);
-            System.err.println("Right: " + right);
-            System.err.println("X = `" + str.charAt(left) + "', Y = `" +
-                                         str.charAt(right) + "'");
-          }
+          err.println("[M] X: at " + left);
+          err.println("[M] Right: " + right);
+          err.println("[M] X = `" + str.charAt(left) + "', Y = `" +
+                                    str.charAt(right) + "'");
+        }
+        else if(x == y) {
+          left++;
+          right--;
+        }
+        // Handled here
+        else if(!Character.isLetterOrDigit(x)) {
+          left++;
+          x = str.charAt(left);
           if(!Character.isLetterOrDigit(y)) {
             right--;
-            System.err.println("Y: at " + right);
-            System.err.println("Left: " + left);
-            System.err.println("X = `" + str.charAt(left) + "', Y = `" +
-                                         str.charAt(right) + "'");
+            y = str.charAt(right);
           }
         }
-      }
+        else if(!Character.isLetterOrDigit(y)) {
+           right--;
+           y = str.charAt(right);
+           if(!Character.isLetterOrDigit(x)) {
+             // Should never get here because
+             // we already handled this
+             // condition up above
+             System.exit(1);
+//             left++;
+//             x = str.charAt(left);
+           }
+        }
+        else {
+          break; // Should have handled all character classes.
+                 // Miscompare
+        }
+	    }
       //while (str.charAt(left) == str.charAt(right) && left < right)
       out.println();
   
       
       if (left < right) {
-        System.out.println ("That string is NOT a palindrome.");
+        out.println ("That string is NOT a palindrome.");
       }
       else {
-        System.out.println ("That string IS a palindrome.");
+        out.println ("That string IS a palindrome.");
       }
   
-      System.out.println();
-      System.out.print ("Test another palindrome (y/n)? ");
+      out.println();
+      out.print ("Test another palindrome (y/n)? ");
   
       another = scan.nextLine();
     }
