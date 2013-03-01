@@ -22,6 +22,14 @@ public class PalindromeTester
 //-----------------------------------------------------------------
 // Tests strings to see if they are palindromes.
 //-----------------------------------------------------------------
+  private static boolean isLetterOrDigit(char ch)
+  {
+    if(ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z' ||
+       ch >= '0' && ch <= '9') {
+      return true;
+    }
+    return false;
+  }
   public static void main (String[] args)
   {
     String str, another = "y";
@@ -42,36 +50,35 @@ public class PalindromeTester
         x = str.charAt(left);
         y = str.charAt(right);
         
+        assert Character.isLetterOrDigit(x) == isLetterOrDigit(x);
+        assert Character.isLetterOrDigit(y) == isLetterOrDigit(y);
+        
         if(Character.toLowerCase(x) ==
            Character.toLowerCase(y)) {
           left++;
           right--;
-          err.println("[M] X: at " + left);
-          err.println("[M] Right: " + right);
-          err.println("[M] X = `" + str.charAt(left) + "', Y = `" +
-                                    str.charAt(right) + "'");
         }
         else if(x == y) {
           left++;
           right--;
         }
         // Handled here
-        else if(!Character.isLetterOrDigit(x)) {
+        else if(!isLetterOrDigit(x)) {
           left++;
           x = str.charAt(left);
-          if(!Character.isLetterOrDigit(y)) {
+          if(!isLetterOrDigit(y)) {
             right--;
             y = str.charAt(right);
           }
         }
-        else if(!Character.isLetterOrDigit(y)) {
+        else if(!isLetterOrDigit(y)) {
            right--;
            y = str.charAt(right);
-           if(!Character.isLetterOrDigit(x)) {
+           if(!isLetterOrDigit(x)) {
              // Should never get here because
              // we already handled this
              // condition up above
-             System.exit(1);
+             assert false;
 //             left++;
 //             x = str.charAt(left);
            }
