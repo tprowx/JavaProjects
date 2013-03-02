@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2013 Travis Mosley <tprowx@gmail.com>
  */
 package ch05.pp5_1;
 

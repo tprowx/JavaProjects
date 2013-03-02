@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2013 Travis Mosley <tprowx@gmail.com>
+ */
 package ch05.pp5_3;
 
 import java.util.Scanner;
