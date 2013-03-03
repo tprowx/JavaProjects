@@ -6,19 +6,23 @@
  *
  */
 
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CountIntegers
 {
   public static void main(String[] args)
   {
     int value;
-    ArrayList<Integer> arr = new ArrayList<Integer>(100);
+    ArrayList<Integer> arr = new ArrayList<>(100);
 
     try {
       Scanner scan = new Scanner(new File("input.dat"));
+    }
+    catch(FileNotFoundException e) {
+	    System.err.println("File not found" + e.getMessage());
     }
     catch(IllegalArgumentException e) {
       System.err.println("Found errorneous file path" + e.getMessage());
@@ -35,9 +39,10 @@ public class CountIntegers
     int div = 1;
     for(int x = 0; x < arr.size(); x++)
     {
-      System.out.print(arr.get[x] + (div % 5 != 0) ? " " : "");
-      if(div % 5 == 0)
-        System.out.println();
+      System.out.print(arr.get(x) + ((div % 5 != 0) ? " " : ""));
+      if(div % 5 == 0) {
+		    System.out.println();
+      }
       div++;
     }
   }
