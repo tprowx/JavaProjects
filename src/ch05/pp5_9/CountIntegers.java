@@ -5,6 +5,7 @@
  * you identify as integers from the input file.
  *
  */
+package ch05.pp5_9;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,30 +21,36 @@ public class CountIntegers
 
     try {
       Scanner scan = new Scanner(new File("input.dat"));
+      while(scan.hasNext()) {
+        while(!scan.hasNextInt() && scan.hasNext()) {
+          scan.next();
+        }
+        if(scan.hasNextInt()) {
+          arr.add(new Integer(scan.nextInt()));
+        }
+      }
+
+      int div = 1;
+      for(int x = 0; x < arr.size(); x++)
+      {
+        System.out.print(arr.get(x) + ((div % 5 != 0) ? " " : ""));
+        if(div % 5 == 0) {
+  		    System.out.println();
+        }
+        div++;
+      }
+      System.out.println();
     }
     catch(FileNotFoundException e) {
-	    System.err.println("File not found" + e.getMessage());
+	    System.err.println("File not found: " + e.getMessage());
     }
     catch(IllegalArgumentException e) {
-      System.err.println("Found errorneous file path" + e.getMessage());
+      System.err.println("Found errorneous file path: " + e.getMessage());
       System.exit(1);
     }
     catch(NullPointerException e) {
       System.err.println(e.getMessage());
     }
 
-    while(scan.hasNextInt()) {
-      arr.add(new Integer(scan.nextInt()));
-    }
-
-    int div = 1;
-    for(int x = 0; x < arr.size(); x++)
-    {
-      System.out.print(arr.get(x) + ((div % 5 != 0) ? " " : ""));
-      if(div % 5 == 0) {
-		    System.out.println();
-      }
-      div++;
-    }
   }
 }
