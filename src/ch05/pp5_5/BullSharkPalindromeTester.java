@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author Christopher Lemire <christopher.lemire@gmail.com>
  */
-public class BullSharksPalindromeTester {
+public class BullSharkPalindromeTester {
 
   /*
    * No error checking implemented
