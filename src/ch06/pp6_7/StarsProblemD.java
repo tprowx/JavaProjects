@@ -11,7 +11,14 @@ public class StarsProblemD
       for(space = 1; space <= MAX_ROWS-row; space++)
         System.out.print("_");
       for(star = 1; star <= row*2-1; star++)
-        System.out.print("X");
+        System.out.print("*");
+      System.out.println();
+    }
+    for(row = MAX_ROWS; row >= 1; row--) {
+      for(space = 1; space <= MAX_ROWS-row; space++)
+        System.out.print("_");
+      for(star = 1; star <= row*2-1; star++)
+        System.out.print("*");
       System.out.println();
     }
     System.out.println();

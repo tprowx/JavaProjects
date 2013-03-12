@@ -10,7 +10,7 @@ public class StarsProblemB
       for(space = 1; space <= MAX_ROWS-row; space++)
         System.out.print("_");
       for(star = 1; star <= MAX_ROWS-space; star++)
-        System.out.print("X");
+        System.out.print("*");
       System.out.println();
     }
     System.out.println();
