@@ -1,14 +1,15 @@
-public class StarsProblemC
+package ch06.pp6_7;
+
+public class StarsProblemB
 {
-  public static void main(String[] args)
-  {
-    final int MAX_ROWS = 5;
+  public static void main(String[] args) {
+    final int MAX_ROWS = 6;
     int row, star, space;
     for(row = 1; row <= MAX_ROWS; row++)
     {
       for(space = 1; space <= MAX_ROWS-row; space++)
         System.out.print("_");
-      for(star = 1; star <= row*2-1; star++)
+      for(star = 1; star <= MAX_ROWS-space; star++)
         System.out.print("X");
       System.out.println();
     }
