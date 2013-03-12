@@ -28,7 +28,7 @@ public class IntegerCounter
 
   public void dec() throws IllegalStateException {
     if(count <= 0) {
-      throw new IllegalStateException(count);
+      throw new IllegalStateException((new Long(count)).toString());
     }
     count--;
   }
