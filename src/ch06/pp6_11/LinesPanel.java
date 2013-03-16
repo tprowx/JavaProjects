@@ -1,3 +1,10 @@
+/* Copyright (C) 2013 Travis Mosley <tprowx@gmail.com>
+ * 
+ * PP 6.11 Design and implement a program that draws 20 horizontal,
+ * evenly spaced parallel lines of random length.
+ * 
+ * Page 298
+ */
 package ch06.pp6_11;
 
 import javax.swing.JPanel;
