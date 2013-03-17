@@ -48,12 +48,12 @@ public class LinesPanel extends JPanel
 
     int lines_drawn = 0;
     int x = 0;
-    int goddamn_solution;
+    int line_height;
     page.setColor(Color.white);
     while(lines_drawn < 20)
     {
       goddamn_solution = gen.nextInt(MAX_LENGTH+2) + 2;
-      page.fillRect(x, window_dim_y+goddamn_solution, 2, goddamn_solution);
+      page.fillRect(x, window_dim_y+line_height, 2, line_height);
       x += SPACING;
       lines_drawn++;
     }
